@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    <!--Metadatos-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    
+    <title>Hola HTML</title>
+    <meta name="description" content="Mi primer documento HTML">     
+    
+    <!-- OPEN GRAPH-->
+    <meta property="og:title" content="Hola HTML">
+    <meta property="og:description" content="Este es mi primer doctumento HTML">
+    <meta property="og:image" content="sample_image.jpg">
+    
+    <!-- Este es el icono en la barra de pestañas-->
+    <link rel="icon" type="archivo-html.svg" href="archivo-html.svg">
+    </head>
+
+    <body>
+        <hearder> <!---->
+            <h1>Mi primer HTML</h1>
+            <nav> 
+                <!--Enlaces internos-->
+                <a href="#Imagen">Imagen</a>
+                <a href="#Articulo">Article</a>
+                <!--Enlace externo-->
+                <a href="https://google.com" target="_blank" rel="noreferrer">Google</a>
+            </nav>
+        </hearder>
+        
+        <main>
+            <h2>Subtitulo h2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nibh diam, dignissim nec ullamcorper at, aliquam vitae elit. Integer sit amet lectus vel libero sagittis pretium. Sed sollicitudin pulvinar leo, ut congue ex vulputate vitae. Suspendisse turpis nisi, tincidunt non ligula quis, bibendum fermentum libero. </p>
+
+            <ul >
+                <li>Punto 1.</li>
+                <li>Punto 2.</li>
+                <li>Ultimo punto.</li>
+            </ul>
+
+            <img
+            id="Imagen"
+            title="Sample image"
+            width="320"
+            height="240"
+            src="sample_image.jpg"
+            >
+            
+            <video controls src="https://filesamples.com/samples/video/mp4/sample_640x360.mp4" width="320" height="240"></video>
+            
+            <article id="Articulo">
+                <h2>Article</h2>
+                <p>El elemento article representa una composición independiente en un documento, página, aplicación o sitio web, que está destinada a ser distribuida o reutilizada de forma independiente (por ejemplo, en sindicación). Esto podría ser una publicación de blog, un artículo de periódico, una entrada de foro, una reseña de producto, etc.
+                El contenido dentro del elemento article debe tener sentido por sí mismo y debe ser posible distribuirlo de forma independiente del resto del contenido del sitio web.</p>
+            </article>
+
+            <section>
+                <h2>Section</h2>
+                <p>El elemento section representa una sección genérica de un documento o aplicación. Se utiliza para agrupar contenido relacionado dentro de un documento, y cada sección debe estar encabezada por un título (usando elementos como h1, h2, etc.) para describir su contenido.</p>
+            </section>
+
+            <aside>
+                <h2>Aside</h2>
+                <p>El elemento aside representa una sección de un documento que está relacionada de forma indirecta con el contenido principal. Se utiliza para contener información adicional, como barras laterales, notas al pie, citas, enlaces relacionados, anuncios, etc. El contenido dentro del elemento aside debe ser relevante para el contenido principal, pero no esencial para su comprensión.</p>
+            </aside>
+        
+            <section>
+                <h2>Formulario de contacto</h2>
+
+                <form method="post" action="/">
+                    <fieldset>
+                        <div>
+                            <legend>Información personal</legend>
+                            <label for="name">Nombre:</label>
+                            <input type="text" id="name" name="name" placeholder="Nombre">
+                        </div>
+                        
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="mail" placeholder="mail">
+                        </div>
+
+                        <div>
+                            <label for="why">Seleccione una opcion</label>
+                            <select id="why" id="why">
+                                <option value="consulta">Consulta</option>
+                                <option value="sugerencia">Sugerencia</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit">Enviar</button>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section>
+                <h2>Preguntas frecuentes</h2>
+
+                <details>
+                    <summary>¿Que es html</summary>
+                    <p>HTML es el lenguaje de marcado estándar para crear páginas web. HTML significa HyperText Markup Language. HTML se utiliza para describir la estructura de las páginas web utilizando una serie de elementos. Estos elementos se representan mediante etiquetas, que le dicen al navegador cómo mostrar el contenido.</p>
+                </details>
+
+                <details>
+                    <summary>¿Porque es importante aprender HTML</summary>
+                    <p>Las principales razones por las cuales es importante aprender HTML son las siguientes:
+                        <ul>
+                            <li>Es la base de la web: HTML es el lenguaje fundamental para crear páginas web. Sin HTML, no habría internet como lo conocemos hoy en día.</li>
+                            <li>Fácil de aprender: HTML es un lenguaje relativamente sencillo y fácil de aprender, especialmente para principiantes en programación.</li>
+                            <li>Alta demanda laboral: El conocimiento de HTML es una habilidad valiosa en el mercado laboral, ya que muchas empresas buscan desarrolladores web con habilidades en HTML.</li>
+                            <li>Flexibilidad: HTML se puede utilizar para crear una amplia variedad de sitios web, desde blogs personales hasta sitios web empresariales complejos.</li>
+                            <li>Complemento para otros lenguajes: El conocimiento de HTML es esencial para trabajar con otros lenguajes de programación web, como CSS y JavaScript.</li>
+                        </ul>
+                </details>
+            </section>
+
+            
+        </main>
+    </body>
+
+    <footer>
+        <div>
+            <small>Footer de mi primer HTML 2025</small>
+        </div>
+        
+        <div>
+            <!--Enlaces de contacto-->
+            <a href="mailto:mistralettialejo@gmail.com">Enviarme un mail</a>
+            <a href="tel:+542901501738">Llamarme</a>
+        </div>
+    </footer>
+</html>
+
