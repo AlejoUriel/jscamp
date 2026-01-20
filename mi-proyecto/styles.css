@@ -384,7 +384,7 @@ article {
   border: 1px solid rgba(255, 255, 255, .3);
   border-radius: 1rem;
 
-  article {
+  .job-listing-card {
     background: none;
     box-shadow: none;
     border-radius: 0;
@@ -394,6 +394,10 @@ article {
     display: flex;
     align-items:center;
     gap: 1rem;
+
+    &.is-hidden {
+      display: none;
+    }
 
     small {
       font-size: .875rem;
@@ -413,6 +417,12 @@ article {
       border-bottom: none;
     }
   }
+}
+
+#no-results-message { 
+  display: none; 
+  text-align: center;
+  margin: 20px 0; 
 }
 
 .pagination {
