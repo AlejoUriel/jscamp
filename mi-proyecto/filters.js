@@ -1,25 +1,29 @@
-const container = document.querySelector('.jobs-listings')
+const container = document.querySelector('.jobs-listings');
+const searchInput = document.querySelector('#search-text');
 const filterTechnology = document.getElementById('filter-technology');
 const filterLocation = document.getElementById('filter-location');
 const filterExperienceLevel = document.getElementById('filter-experience-level');
 
 // Función para filtrar jobs basados en los selectores
 function filterJobs() {
+    const searchedName = searchInput.value.toLowerCase();
     const selectedTech = filterTechnology.value;
     const selectedLocation = filterLocation.value;
     const selectedLevel = filterExperienceLevel.value;
     
     const jobCards = document.querySelectorAll('.job-listing-card');
     jobCards.forEach(job => {
+        const jobName = job.dataset.titulo.toLowerCase();
         const jobTech = job.dataset.technology ? job.dataset.technology.split(',') : []; // Asumimos que se guarda como string separado por comas
         const jobLocation = job.dataset.modalidad;
         const jobLevel = job.dataset.nivel;
         
+        const nameMatch = jobName.includes(searchedName);
         const techMatch = !selectedTech || jobTech.includes(selectedTech);
         const locationMatch = !selectedLocation || jobLocation === selectedLocation;
         const levelMatch = !selectedLevel || jobLevel === selectedLevel;
         
-        const isShow = techMatch && locationMatch && levelMatch;
+        const isShow = nameMatch && techMatch && locationMatch && levelMatch;
         job.classList.toggle('is-hidden', !isShow);
     });
 
@@ -33,28 +37,25 @@ function filterJobs() {
     }
 }
 
-// Event listeners para filtros
+/*
+ Eventos para el input de búsqueda
+searchInput.addEventListener('input', filterJobs);  //-se envia con cada cambio en el input
+
+searchInput.addEventListener('blur', function() {
+    console.log(searchInput.value + '(blur event)');  //Se envia al desenfocar el input
+});
+*/
+
+const empleoSearchForm = document.querySelector('#empleos-search-form');
+empleoSearchForm.addEventListener('submit', function(event) {   //Se envia con el enter
+    event.preventDefault();
+    filterJobs();
+});
+
+// Event listeners para los filtros
 filterTechnology.addEventListener('change', filterJobs);
 filterLocation.addEventListener('change', filterJobs);
 filterExperienceLevel.addEventListener('change', filterJobs);
-
-// Eventos para el input de búsqueda
-const searchInput = document.querySelector('#search-text');
-
-searchInput.addEventListener('input', function() {
-    console.log(searchInput.value + '(input event)');
-});
-
-searchInput.addEventListener('blur', function() {
-    console.log(searchInput.value + '(blur event)');
-});
-
-const empleoSearchForm = document.querySelector('#empleos-search-form');
-
-empleoSearchForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    console.log('Submitted form (search event)');
-});
 
 //mensaje de prueba para ubicacion seleccionada
 const mensaje = document.querySelector('#filter-selected-value');

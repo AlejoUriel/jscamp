@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
+import { useState } from 'react'
 
-<head>
-    <title>DevJobs - Empleos</title>
-    <meta charset="UTF-8"/>
-    <meta name="description" content="Listado de empleos y filtro para encontrar el trabajo de tus sueños.">
+function App() {
+  const [count, setCount] = useState(0)
 
-    <link rel="stylesheet" href="./styles.css"/>
-	<script type="module" src="./main.js"></script>
-
-</head>
-
-<body>
-  <header>
+  return (
+    <>
+      <header>
       <h1>
         	<a href="index.html" class="logo-link" aria-label="Ir al inicio">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -48,7 +41,7 @@
 					<path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
 					<path d="M21 21l-6 -6" />
 					</svg>
-					<input required type="text" name="search" id="search-text" placeholder="Busca trabajos, empresas o habilidades">
+					<input required type="text" name="search" id="search-text" placeholder="Busca trabajos, empresas o habilidades"/>
 					<button type="submit">Buscar</button>
 				</div>
 						
@@ -72,7 +65,6 @@
 			</div>
 					
 			<div class="jobs-listings">
-				<!-- Las ofertas de trabajo se cargarán acá dinámicamente -->
 			</div>
 
 			<div>
@@ -112,6 +104,8 @@
       </div>
 			<small>&copy; 2025 Alejo DevJobs. Todos los derechos reservados.</small>
   </footer>
-</body>
+    </>
+  )
+}
 
-</html>
+export default App

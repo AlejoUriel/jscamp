@@ -59,6 +59,7 @@ function populateOptions() {
                 article.className = 'job-listing-card';
                 
                 // Setear datasets (technology como string separado por comas si es array)
+                article.dataset.titulo = job.titulo;
                 article.dataset.technology = Array.isArray(job.data.technology) ? job.data.technology.join(',') : job.data.technology || '';
                 article.dataset.modalidad = job.data.modalidad || '';
                 article.dataset.nivel = job.data.nivel || '';
