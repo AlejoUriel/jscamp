@@ -392,11 +392,15 @@ article {
     margin: 0;
 
     display: flex;
-    align-items:center;
+    align-items: center;
     gap: 1rem;
 
     &.is-hidden {
       display: none;
+    }
+
+    button {
+      margin-left: auto;
     }
 
     small {
