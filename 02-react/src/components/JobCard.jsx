@@ -1,37 +1,34 @@
 import { useState } from 'react';
 
-//Crear el componente JobCard.jsx
-function JobCard({ data, titulo, empresa, ubicacion, descripcion }) {
+export default function JobCard({ job }) {
         const [isApplied, setIsApplied] = useState(false);
 		
-		function handleClick() {
-			setIsApplied(!isApplied);
+		const handleClick = () => {
+			setIsApplied(true)
 		}
-	
-		const text = isApplied ? 'Aplicado!' : 'Aplicar';
-		const buttonClass = isApplied ? 'is-applied' : '';
-		
+
+		const buttonClasses = isApplied ? 'button-apply-job is-applied' : 'button-apply-job'
+		const buttonText = isApplied ? 'Aplicado!' : 'Aplicar'
+
 		return (
 			<article 
 				className="job-listing-card"
-				data-modalidad={data?.modalidad}
-				data-nivel={data?.nivel}
-				data-tecnologia={data?.tecnologia}
+				data-modalidad={job.data.modalidad}
+				data-nivel={job.data.nivel}
+				data-tecnologia={job.data.tecnologia}
 			>
 				<div>
-					<h3>{titulo}</h3>
-					<small>{empresa} | {ubicacion}</small>
-					<p>{descripcion}</p>
+					<h3>{job.titulo}</h3>
+					<small>{job.empresa} | {job.ubicacion}</small>
+					<p>{job.descripcion}</p>
 				</div>
 				<button
 					disabled={isApplied}
-                    className={buttonClass}
+                    className={buttonClasses}
                     onClick={handleClick}
                     >
-                    {text}
+                    {buttonText}
                 </button>
 			</article>
         );
     }
-
-export default JobCard;
