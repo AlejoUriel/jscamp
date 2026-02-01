@@ -1,4 +1,4 @@
-export default function SearchFormSection() {
+export default function SearchFormSection({ technologies, locations, levels }) {
   return (
     <section className="jobs-search">
         <h1>Encuentra tu próximo trabajo</h1>
@@ -19,12 +19,30 @@ export default function SearchFormSection() {
               
           <div className="search-filters">
             <select name="technology" id="filter-technology">
+              <option value="">Todas</option>
+              {technologies.map((technology) => (
+                <option key={technology} value={technology}>
+                  {technology}
+                </option>
+              ))}
             </select>
 
             <select name="location" id="filter-location">
+              <option value="">Todas</option>
+              {locations.map((location) => (
+                <option key={location} value={location}>
+                  {location}
+                </option>
+              ))}
             </select>
 
             <select name="experience-level" id="filter-experience-level">
+              <option value="">Todas</option>
+              {levels.map((level) => (
+                <option key={level} value={level}>
+                  {level}
+                </option>
+              ))}
             </select>
           </div>
         </form>
