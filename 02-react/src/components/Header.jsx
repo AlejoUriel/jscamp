@@ -1,19 +1,21 @@
+import { Link } from './Link.jsx'
+
 export default function Header() {
   return (
     <header>
       <h1>
-        	<a href="Home" className="logo-link" aria-label="Ir al inicio">
+        	<Link href="Home" className="logo-link" aria-label="Ir al inicio">
               <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
 								viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<polyline points="16 18 22 12 16 6"></polyline>
 								<polyline points="8 6 2 12 8 18"></polyline>
 							</svg>
 							DevJobs
-					</a>
+			</Link>
 		</h1>
 
 		<nav>
-			<a href="Search">Empleos</a>
+			<Link href="Search">Empleos</Link>
 		</nav>
 
     </header>

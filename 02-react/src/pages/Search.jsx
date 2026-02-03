@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import SearchFormSection from '../components/SearchFormSection.jsx'
 import JobListings from '../components/JobListings.jsx'
 import Pagination from '../components/Pagination.jsx'
@@ -110,6 +111,10 @@ export function SearchPage() {
   const handleSearchSubmit = (event) => {
     event.preventDefault()
   }
+
+  useEffect(() => {
+    document.title = `Buscar empleos - Página ${currentPage}`
+  }, [currentPage])
 
   return (
     <main>
