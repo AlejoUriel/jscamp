@@ -2,7 +2,7 @@ export default function Header() {
   return (
     <header>
       <h1>
-        	<a href="index.html" className="logo-link" aria-label="Ir al inicio">
+        	<a href="Home" className="logo-link" aria-label="Ir al inicio">
               <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
 								viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<polyline points="16 18 22 12 16 6"></polyline>
@@ -13,8 +13,7 @@ export default function Header() {
 		</h1>
 
 		<nav>
-			<a href="index.html">Inicio</a>
-			<a href="empleos.html">Empleos</a>
+			<a href="Search">Empleos</a>
 		</nav>
 
     </header>

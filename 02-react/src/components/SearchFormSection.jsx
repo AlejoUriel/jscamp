@@ -1,3 +1,5 @@
+import {useId} from 'react'
+
 export default function SearchFormSection({
   technologies,
   locations,
@@ -12,6 +14,12 @@ export default function SearchFormSection({
   onLevelChange,
   onSubmit,
 }) {
+
+  const idText = useId()
+  const idTechnology = useId()
+  const idLocation = useId()
+  const idExperienceLevel = useId()
+
   return (
     <section className="jobs-search">
         <h1>Encuentra tu próximo trabajo</h1>
@@ -29,7 +37,7 @@ export default function SearchFormSection({
             <input
               required
               type="text"
-              name="search"
+              name={idText}
               id="search-text"
               placeholder="Busca trabajos, empresas o habilidades"
               value={searchText}
@@ -40,7 +48,7 @@ export default function SearchFormSection({
               
           <div className="search-filters">
             <select
-              name="technology"
+              name={idTechnology}
               id="filter-technology"
               value={selectedTechnology}
               onChange={onTechnologyChange}
@@ -54,7 +62,7 @@ export default function SearchFormSection({
             </select>
 
             <select
-              name="location"
+              name={idLocation}
               id="filter-location"
               value={selectedLocation}
               onChange={onLocationChange}
@@ -68,7 +76,7 @@ export default function SearchFormSection({
             </select>
 
             <select
-              name="experience-level"
+              name={idExperienceLevel}
               id="filter-experience-level"
               value={selectedLevel}
               onChange={onLevelChange}
