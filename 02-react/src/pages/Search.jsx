@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Pagination } from '../components/Pagination.jsx'
 import { SearchFormSection } from '../components/SearchFormSection.jsx'
 import { JobListings } from '../components/JobListings.jsx'
+import { Spinner } from '../components/Spinner.jsx'
 import { useRouter } from '../hooks/useRouter.jsx'
 
 const RESULTS_PER_PAGE = 4
@@ -23,7 +24,7 @@ const useFilters = () => {
   const [currentPage, setCurrentPage] = useState(() => {
     const params = new URLSearchParams(window.location.search)
     const page = Number(params.get('page'))
-    return Number.isNaN(page) ? page : 1
+    return Number.isNaN(page) || page < 1 ? 1 : page
   })
 
   const [jobs, setJobs] = useState([])
@@ -50,7 +51,7 @@ const useFilters = () => {
         const queryParams = params.toString()
       
         const response = await fetch(`https://jscamp-api.vercel.app/api/jobs?${queryParams}`)
-        const json = await response.json()
+        const json = await response.json()  
 
         setJobs(json.data)
         setTotal(json.total)
@@ -71,7 +72,6 @@ const useFilters = () => {
     if (filters.technology) params.append('technology', filters.technology)
     if (filters.location) params.append('type', filters.location)
     if (filters.experienceLevel) params.append('level', filters.experienceLevel)
-
     if (currentPage > 1) params.append('page', currentPage)
 
     const newUrl = params.toString()
@@ -139,10 +139,10 @@ export function SearchPage() {
       />
 
       <section>
-        <h2 style={{ textAlign: 'center' }}>Resultados de búsqueda</h2>
+        <h2 style={{ textAlign: 'left' }}>Resultados de búsqueda</h2>
 
         {
-          loading ? <p>Cargando empleos...</p> : <JobListings jobs={jobs} />
+          loading ? <Spinner /> : <JobListings jobs={jobs} />
         }
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
       </section>
