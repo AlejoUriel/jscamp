@@ -50,6 +50,9 @@ export function SearchFormSection ({ onTextFilter, onSearch, initialText }) {
   const idExperienceLevel = useId()
 
   const inputRef = useRef()
+  const technologyRef = useRef()
+  const locationRef = useRef()
+  const experienceLevelRef = useRef()
 
   const {
     handleSubmit,
@@ -60,6 +63,9 @@ export function SearchFormSection ({ onTextFilter, onSearch, initialText }) {
     event.preventDefault()
 
     inputRef.current.value = ""
+    technologyRef.current.value = ""
+    locationRef.current.value = ""
+    experienceLevelRef.current.value = ""
     onTextFilter("")
   }
 
@@ -93,7 +99,7 @@ export function SearchFormSection ({ onTextFilter, onSearch, initialText }) {
         </div>
 
         <div className="search-filters">
-          <select name={idTechnology} id="filter-technology">
+          <select ref={technologyRef} name={idTechnology} id="filter-technology">
             <option value="">Tecnología</option>
             <optgroup label="Tecnologías populares">
               <option value="javascript">JavaScript</option>
@@ -111,7 +117,7 @@ export function SearchFormSection ({ onTextFilter, onSearch, initialText }) {
             <option value="php">PHP</option>
           </select>
 
-          <select name={idLocation} id="filter-location">
+          <select ref={locationRef} name={idLocation} id="filter-location">
             <option value="">Ubicación</option>
             <option value="remoto">Remoto</option>
             <option value="cdmx">Ciudad de México</option>
@@ -120,7 +126,7 @@ export function SearchFormSection ({ onTextFilter, onSearch, initialText }) {
             <option value="barcelona">Barcelona</option>
           </select>
 
-          <select name={idExperienceLevel} id="filter-experience-level">
+          <select ref={experienceLevelRef} name={idExperienceLevel} id="filter-experience-level">
             <option value="">Nivel de experiencia</option>
             <option value="junior">Junior</option>
             <option value="mid">Mid-level</option>

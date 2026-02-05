@@ -65,6 +65,7 @@ const useFilters = () => {
     fetchJobs()
   }, [filters, currentPage, textToFilter])
 
+  // Sincronizar la URL con los filtros y la página actual
   useEffect(() => {
     const params = new URLSearchParams()
 
