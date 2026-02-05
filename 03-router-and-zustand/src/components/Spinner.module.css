@@ -1,0 +1,27 @@
+/* ...existing code... */
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+}
+.circle {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--background);
+  border-top-color: var(--text-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+.text {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+/* ...existing code... */
