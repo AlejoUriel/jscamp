@@ -1,10 +1,10 @@
-import styles from './Spinner.module.css'
+import styles from './Loading.module.css'
 
-export function Spinner() {
+export function Spinner({ text = 'Cargando...' }) {
     return (
         <div className={styles.spinner}>
             <div className={styles.circle} />
-            <p className={styles.text}>Cargando empleos...</p>
+            <p className={styles.text}>{text}</p>
         </div>
 
     )

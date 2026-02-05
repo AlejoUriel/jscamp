@@ -143,7 +143,7 @@ export function SearchPage() {
         <h2 style={{ textAlign: 'left' }}>Resultados de búsqueda</h2>
 
         {
-          loading ? <Spinner /> : <JobListings jobs={jobs} />
+          loading ? <Spinner text={"Cargando empleos..."} /> : <JobListings jobs={jobs} />
         }
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
       </section>
