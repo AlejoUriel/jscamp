@@ -24,7 +24,7 @@ export function JobSection ({ title, content= ''}) {
   )
 }
 
-export function JobDetail() {
+export default function JobDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
 

@@ -6,7 +6,9 @@
   justify-content: center;
   gap: 8px;
   padding: 12px;
+  min-height: 60vh;
 }
+
 .circle {
   width: 48px;
   height: 48px;
@@ -14,7 +16,9 @@
   border-top-color: var(--text-primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
+  box-sizing: border-box;
 }
+
 .text {
   margin: 0;
   font-size: 14px;
