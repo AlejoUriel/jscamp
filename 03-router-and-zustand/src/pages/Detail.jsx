@@ -1,9 +1,11 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from "react-router"
+import { useAuthStore } from '../store/authStore.js'
 import { Link } from '../components/Link.jsx'
 import { Spinner } from '../components/Spinner.jsx'
 import styles from './Detail.module.css'
 import snarkdown from 'snarkdown'
+import { useFavoritesStore } from '../store/favoritesStore.js'
 
 export function JobSection ({ title, content= ''}) {
   const html = snarkdown(typeof content === 'string' ? content : '')
@@ -21,6 +23,59 @@ export function JobSection ({ title, content= ''}) {
         }}
       />
     </section>
+  )
+}
+
+function DetailPageBreadCrumb ({ job }) {
+  return (
+    <div className={styles.container}>
+        <nav className={styles.breadcrumbs}>
+          <Link
+            href="/search"
+            className={styles.breadcrumbButton}
+          >
+            Empleos
+          </Link>
+          <span className={styles.breadcrumbSeparator}>/</span>
+          <span className={styles.breadcrumbCurrent}>{job.titulo}</span>
+        </nav>
+      </div>
+  )
+}
+
+function DetailPageHeader ({ job, isLoggedIn }) {
+  return (
+    <>
+      <header className={styles.header}>
+        <h1 className={styles.title}>
+          {job.titulo}
+        </h1>
+        <p className={styles.meta}>
+          {job.empresa} - {job.ubicacion}
+        </p>
+      </header>
+
+      <DetailApplyButton />
+      <DetailFavoriteButton jobId={job.id}/>
+    </>
+  )
+}
+
+function DetailApplyButton () {
+  const { isLoggedIn } = useAuthStore()
+  return (
+    <button disabled={!isLoggedIn} className={styles.applyButton}>
+        {isLoggedIn ? "Aplicar ahora" : "Inicia sesión para aplicar"}
+      </button>
+  )
+}
+
+function DetailFavoriteButton ({ jobId }) {
+  const { isFavorite, toggleFavorite } = useFavoritesStore()
+  return (
+    <button onClick={() => toggleFavorite(jobId)}>
+      {isFavorite(jobId) ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+    </button>
   )
 }
 
@@ -73,6 +128,7 @@ export default function JobDetail() {
           >
             Volver al inicio
           </button>
+          
         </div>   
       </div>
     )
@@ -80,32 +136,9 @@ export default function JobDetail() {
 
   return (
     <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1rem' }}>
-      <div className={styles.container}>
-        <nav className={styles.breadcrumbs}>
-          <Link
-            href="/search"
-            className={styles.breadcrumbButton}
-          >
-            Empleos
-          </Link>
-          <span className={styles.breadcrumbSeparator}>/</span>
-          <span className={styles.breadcrumbCurrent}>{job.titulo}</span>
-        </nav>
-      </div>
-
-      <header className={styles.header}>
-        <h1 className={styles.title}>
-          {job.titulo}
-        </h1>
-        <p className={styles.meta}>
-          {job.empresa} - {job.ubicacion}
-        </p>
-      </header>
-
-      <button className={styles.applyButton}>
-        Aplicar ahora
-      </button>
-
+      <DetailPageBreadCrumb job={job} />
+      <DetailPageHeader job={job} />  
+      
       <JobSection title="Descripcion del puesto" content={job.content.description}/>
       <JobSection title="Responsabilidades" content={job.content.responsabilities}/>
       <JobSection title="Requisitos" content={job.content.requirements}/>

@@ -588,6 +588,7 @@ main > section:nth-child(3) h2 {
 }
 
 .nav-link-active {
-  color: yellow;
   pointer-events: none;
+  opacity: .75;
+  user-select: none;
 }
