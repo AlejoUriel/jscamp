@@ -1,6 +1,7 @@
 import express from 'express';
+import { DEFAULTS } from './config.js';
 
-const PORT = process.env.PORT ?? 3000
+const PORT = process.env.PORT ?? DEFAULTS.PORT
 
 const app = express()
 
@@ -12,7 +13,8 @@ app.get('/users', (req, res) => {
   res.send('<h1>Users endpoint</h1>')
 })
 
-app.listen(PORT, () => {
-  console.log('Server listening on http://localhost:' + PORT)
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok',
+    uptime: process.uptime(),
+  })
 })
-
