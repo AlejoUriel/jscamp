@@ -36,7 +36,7 @@ export default function HomePage () {
           <input 
             required
             name="search"
-            type="text" 
+            type="search" 
             placeholder="Buscar empleos por título, habilidad o empresa"
           />
 

@@ -13,7 +13,7 @@ app.use('/jobs', jobsRouter)
 
 if (!process.env.NODE_ENV) {
   app.listen(PORT, () => {
-    console.log(`Servidor levantado en http://localhost:${PORT}`)
+    console.log(`Server running at http://localhost:${PORT}`)
   })
 }
 

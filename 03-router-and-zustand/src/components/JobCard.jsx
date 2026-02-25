@@ -18,7 +18,7 @@ function JobCardFavoriteButton({jobId}) {
 
 function JobCardApplyButton({ jobId }) {
   const [isApplied, setIsApplied] = useState(false)
-  const { isLoggedIn } = useAuthStore
+  const { isLoggedIn } = useAuthStore()
 
 
   const buttonClasses = isApplied ? 'button-apply-job is-applied' : 'button-apply-job'
